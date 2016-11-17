@@ -1,45 +1,10 @@
-//set an array with letters of the alphabet
-
-//var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 
-//'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-
-
-//set variables for number of guesses, wins, and losses
-
-var guessCounter = 10; //sets number of guesses to 10
-var guessDiv = document.createElement("div");
-	guessDiv.innerHTML = "Guesses: " + guessCounter;
-	scoring.appendChild(guessDiv);
-var winsCounter = 0; //sets number of wins to 0
-var winsDiv = document.createElement("div");
-	winsDiv.innerHTML = "Wins: " + winsCounter;
-	scoring.appendChild(winsDiv);
-var lossesCounter = 0; //sets number of losses to 0
-	var lossesDiv = document.createElement("div");
-	lossesDiv.innerHTML = "Losses: " + lossesCounter;
-	scoring.appendChild(lossesDiv);
-
-//set variable for number of spaces in each word
-
-//var space ; //number of spaces in each word
-
-//get elements by ID
-	//document.getElementById("");
-		//var name = 
-
-	//var showWins = 
-		//document.getElementById("winsCounter");
-
-//allow user to select catagory
- 	//var chosenCatagory
-
 //randomly select catagory and word within catagory
 //catagories: movies, books, and TV
 //word arrays within catagory array
 
 var play = function(){
 	var catagories = [
-	['dawn of the dead', 'psycho', 'halloween', 'scream', 'evil dead', 'reanimator', 
+	['dawn of the dead', 'psycho', 'halloween', 'scream', 'evil dead', 're-animator', 
 	'nightmare on elm street', 'the conjuring', 'the texas chainsaw massacre', 'poltergeist'], 
 	['the shining', 'carrie', 'pet semetary', 'the exorcist', 'house of leaves', 'dracula', 
 	'frankenstein', 'the collector', 'silence of the lambs', 'in cold blood'], ['the walking dead', 
@@ -68,11 +33,35 @@ var play = function(){
 
 	selectCatagory();
 
+	//set _ for number of spaces in each word
+	var guesses = [];
+	result = function () {
+   		var wordHolder = document.getElementById('wordSelected');
+    	var word = document.createElement('ul');
+
+    	for (var i = 0; i < chosenWord.length; i++) {
+      		word.setAttribute('id', 'newWord');
+      		var guess = document.createElement('li');
+      		guess.setAttribute('class', 'guess');
+      	if (chosenWord[i] === "-") {
+        	guess.innerHTML = "-";
+        	var space = 1;
+      	} else {
+        	guess.innerHTML = "_";
+      	}
+
+      	guesses.push(guess);
+     	 wordHolder.appendChild(word);
+      	word.appendChild(guess);
+    }
+  }
+  result();
 
 
 }
 
 play();
+
 
 
 
@@ -89,6 +78,25 @@ document.onkeyup = function(event) {
 
 
 //replace '_' with correct letter
+
+
+//set variables for number of guesses, wins, and losses
+
+var guessCounter = 13; //sets number of guesses to 13
+var guessDiv = document.createElement("div");
+	guessDiv.innerHTML = "Guesses: " + guessCounter;
+	scoring.appendChild(guessDiv);
+
+var winsCounter = 0; //sets number of wins to 0
+var winsDiv = document.createElement("div");
+	winsDiv.innerHTML = "Wins: " + winsCounter;
+	scoring.appendChild(winsDiv);
+
+var lossesCounter = 0; //sets number of losses to 0
+var lossesDiv = document.createElement("div");
+	lossesDiv.innerHTML = "Losses: " + lossesCounter;
+	scoring.appendChild(lossesDiv);
+
 
 
 //adjust number of guesses left, wins, losses
