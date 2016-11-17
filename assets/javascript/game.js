@@ -47,21 +47,31 @@ var play = function(){
 	var chosenCatagory = catagories[Math.floor(Math.random()*catagories.length)];
 	var chosenWord = chosenCatagory[Math.floor(Math.random()*chosenCatagory.length)];
 	console.log(chosenWord);
-}
-
-play();
 
 //if/else statements to select catagory
 
 	var selectCatagory = function () {
 		if (chosenCatagory === catagories[0]) {
 			catagoryName.innerHTML = "The Chosen Catagory is Movies!";
+			
 		} else if (chosenCatagory === catagories[1]) {
 			catagoryName.innerHTML = "The Chosen Catagory is Books!";
+			
 		}else if (chosenCatagory === catagories[2]) {
 			catagoryName.innerHTML = "The Chosen Catagory is TV!";
+			
 		}
 	}
+
+	selectCatagory()
+
+
+
+}
+
+play();
+
+
 
 //turn user guess into a string and stores guessed letter
 
