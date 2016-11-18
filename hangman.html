@@ -4,35 +4,36 @@
 		<title>Horror Hangman</title>
 
 		<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+		<link href="https://fonts.googleapis.com/css?family=Creepster" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="assets/css/hangman.css">
 
 
 	</head>
 	<body>
 
-		<div class="container">
-			<h1> Horror Hangman!</h1>
+		<div class="container1">
+			<h1 id="title"> Horror Hangman!</h1>
 
-			<p> press any key to guess a letter</p>
+			<p id="instructions"> press any key to guess a letter</p>
 		</div>
 
-		<div class="container">
+		<div class="container2">
 			<div id="catagoryName"></div>
 
 			<div id="wordSelected">
 			</div>
 
 			<br>
+			<br>
 
-			<p id="guesses">Letters already guessed</p>
+			<p id="guessed">Letters already guessed</p>
+
+			<br>
+			<br>
 
 			<div id="scoring">
 			</div>
 
-			<div class="container">
-				<button id="reset">Play Again!</button>
-			</div>
-		</div>
 	
 	<script type="text/javascript" src="assets/javascript/game.js"></script>
 	</body>

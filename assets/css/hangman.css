@@ -1,13 +1,99 @@
 body{
-	
+  background-image: url("../images/background.jpg");
+  color: #dfdbdb;
+  box-sizing: border-box;
+  position: fixed;
+  overflow: auto;
+}
+
+.container1{
+  display: inline-block;
+  clear: both;
+  width: 400px;
+  margin: 20px;
+  padding: 10px 50px 10px 50px;
+  align-content: center;
+  border-color: #860303;
+  border-style: solid;
+  border-width: 3px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+.container2{
+  display: inline-block;
+  clear: both;
+  width: 400px;
+  margin: 20px;
+  padding: 50px;
+  align-content: center;
+  border-color: #860303;
+  border-style: solid;
+  border-width: 3px;
+  position: absolute;
+  top: 200px;
+  left: 0px;
+}
+
+#title{
+  text-align: center;
+  content: center;
+  font-family: 'Creepster', cursive;
+  font-size: 40px;
+
+}
+
+#instructions{
+  text-align: center;
+  content: center;
+  font-size: 18px;
+  padding-bottom: 10px;
+}
+
+#catagoryName{
+  text-align: center;
+  content: center;
+  font-size: 20px;
+
+}
+
+#wordSelected{
+  text-align: center;
+  content: center;
+  font-size: 20px;
+
+}
+
+#guessed{
+  text-align: center;
+  content: center;
+
+}
+
+#scoring{
+
 }
 
 #newWord li{
 	float: left;
 	list-style-type: none;
+	margin: 2px;
 }
 
 #newWord li a{
 	text-decoration: none;
 	font-size: 17px;
 }
+
+#newGuess li{
+	float: left;
+	list-style-type: none;
+	margin: 2px;
+}
+
+#newGuess li a{
+	text-decoration: none;
+	font-size: 17px;
+}
+
