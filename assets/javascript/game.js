@@ -112,7 +112,7 @@ var play = function() {
       
 
       //increases wins by 1 when word is correctly guessed
-      	if(matchCounter === guesses.length){
+      	if(matchCounter === chosenWord.length){
       		winsCounter++
       		winsDiv.innerHTML = "Wins: " + winsCounter;
       		// automatically reset game
