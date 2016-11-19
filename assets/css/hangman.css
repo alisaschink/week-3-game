@@ -36,6 +36,11 @@ body{
   left: 0px;
 }
 
+.guess{
+  float: left;
+  margin: 1px;
+}
+
 #title{
   text-align: center;
   content: center;
@@ -75,25 +80,17 @@ body{
 
 }
 
-#newWord li{
-	float: left;
-	list-style-type: none;
-	margin: 2px;
+#newWord{
+  align-content: center;
+  text-align: center;
+  align-self: center;
+  margin-left: 50px;
 }
 
-#newWord li a{
-	text-decoration: none;
-	font-size: 17px;
-}
-
-#newGuess li{
-	float: left;
-	list-style-type: none;
-	margin: 2px;
-}
-
-#newGuess li a{
-	text-decoration: none;
-	font-size: 17px;
+#newGuess{
+  align-content: center;
+  text-align: center;
+  align-self: center;
+  margin-left: 50px;
 }
 

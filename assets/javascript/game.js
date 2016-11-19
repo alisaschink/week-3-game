@@ -13,6 +13,7 @@ var catagories = [movies, books, tv];
 var guesses = [];
 
 var guessCounter = 13; //sets number of guesses to 13
+var matchCounter = 0; //sets number of matches to 0
 var winsCounter = 0;//sets wins to 0
 var lossesCounter = 0;//sets losses to 0
 
@@ -41,14 +42,15 @@ var play = function() {
 
   selectCatagory();
 
+
   //set _ for number of spaces in each word
   var game = function() {
     var wordHolder = document.getElementById('wordSelected');
-    var word = document.createElement('ul');
+    var word = document.createElement('div');
     word.setAttribute('id', 'newWord');
 
     for (var i = 0; i < chosenWord.length; i++) {
-      var guess = document.createElement('li');
+      var guess = document.createElement('div');
       guess.setAttribute('class', 'guess');
       if (chosenWord[i] === "-") {
         guess.innerHTML = "-";
@@ -64,12 +66,16 @@ var play = function() {
 
     }
 
-    //displays number of guesses, wins, and losses
+    //displays number of guesses, matches, wins, and losses
+   	var matchDiv = document.createElement("div");
+    	matchDiv.innerHTML = "Matches: " + matchCounter;
     var winsDiv = document.createElement("div");
     	winsDiv.innerHTML = "Wins: " + winsCounter;
     var lossDiv = document.createElement("div");
     	lossDiv.innerHTML = "Losses: " + lossesCounter;
 
+
+    scoring.appendChild(matchDiv);
     scoring.appendChild(winsDiv);
     scoring.appendChild(lossDiv);
 
@@ -77,7 +83,8 @@ var play = function() {
     var guessDiv = document.createElement("div");
     if (guessCounter < 1) {
       guessDiv.innerHTML = "Game Over";
-      lossDiv.innerHTML = "Losses: " + lossesCounter++;
+      lossesCounter++
+      lossDiv.innerHTML = "Losses: " + lossesCounter;
     } else {
       guessDiv.innerHTML = "Guesses: " + guessCounter;
     }
@@ -93,30 +100,33 @@ var play = function() {
       
 
 
-      //replace '_' with correct letter
+      //replace '_' with correct letter and increases matches by 1
       for (var i = 0; i < chosenWord.length; i++) {
         if (chosenWord[i] === userGuess) {
-          guesses[i].innerHTML = userGuess;
+           guesses[i].innerHTML = userGuess;
+           matchCounter++
+           matchDiv.innerHTML = "Matches: " + matchCounter;
 
         };
       };
       
 
       //increases wins by 1 when word is correctly guessed
-      // var correctWord = guesses.indexOf('_');
-      // 	if(correctWord === -1){
-      // 		winsDiv.innerHTML = "Wins: " + winsCounter++;
-      		//automatically reset game
-      		//play();
-      	// };
+      	if(matchCounter === guesses.length){
+      		winsCounter++
+      		winsDiv.innerHTML = "Wins: " + winsCounter;
+      		// automatically reset game
+      		// play();
+      	};
+
 
       //creates list of guessed letters
       var guessed = document.getElementById('guessed');
 
-      var guessedList = document.createElement('ul');
+      var guessedList = document.createElement('div');
       	guessedList.setAttribute('id', 'newGuess');
 
-      var guessedLetter = document.createElement('li');
+      var guessedLetter = document.createElement('div');
       	guessedLetter.setAttribute('class', 'guess');
       	
 
@@ -127,7 +137,8 @@ var play = function() {
       		 	guessed.appendChild(guessedList);
       			guessedList.appendChild(guessedLetter);
       			//reduces guesses by 1
-      			guessDiv.innerHTML = "Guesses: " + guessCounter--;
+      			guessCounter--
+      			guessDiv.innerHTML = "Guesses: " + guessCounter;
       		};
 
     };
