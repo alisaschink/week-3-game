@@ -12,7 +12,7 @@ var tv = ['the walking dead',
 var catagories = [movies, books, tv];
 var guesses = [];
 
-var guessCounter = 13; //sets number of guesses to 13
+var guessCounter = 15; //sets number of guesses to 13
 var matchCounter = 0; //sets number of matches to 0
 var winsCounter = 0;//sets wins to 0
 var lossesCounter = 0;//sets losses to 0
@@ -73,25 +73,14 @@ var play = function() {
     	winsDiv.innerHTML = "Wins: " + winsCounter;
     var lossDiv = document.createElement("div");
     	lossDiv.innerHTML = "Losses: " + lossesCounter;
+    var guessDiv = document.createElement("div");
+      guessDiv.innerHTML = "Guesses: " + guessCounter;
 
 
     scoring.appendChild(matchDiv);
     scoring.appendChild(winsDiv);
     scoring.appendChild(lossDiv);
-
-
-    var guessDiv = document.createElement("div");
-    if (guessCounter < 1) {
-      guessDiv.innerHTML = "Game Over";
-      lossesCounter++
-      lossDiv.innerHTML = "Losses: " + lossesCounter;
-    } else {
-      guessDiv.innerHTML = "Guesses: " + guessCounter;
-    }
     scoring.appendChild(guessDiv);
-
-
- 
 
 
     //turn user guess into a string and stores guessed letter
@@ -115,7 +104,11 @@ var play = function() {
       	if(matchCounter === chosenWord.length){
       		winsCounter++
       		winsDiv.innerHTML = "Wins: " + winsCounter;
+          //show picture when correct word is guessed
       		// automatically reset game
+          //var guessCounter = 15; //sets number of guesses to 13
+         // var matchCounter = 0; //sets number of matches to 0
+         //var guesses = [];
       		// play();
       	};
 
@@ -139,6 +132,14 @@ var play = function() {
       			//reduces guesses by 1
       			guessCounter--
       			guessDiv.innerHTML = "Guesses: " + guessCounter;
+
+            if ( guessCounter < 0 ) {
+              guessDiv.innerHTML = "Game Over";
+              lossesCounter++
+              lossDiv.innerHTML = "Losses: " + lossesCounter;
+              //show answer if user loses
+
+            };
       		};
 
     };
@@ -152,6 +153,6 @@ var play = function() {
 play();
 
 
-//show picture when correct word is guessed
 
-//show answer if user loses
+
+
