@@ -10,9 +10,9 @@ var tv = ['the walking dead',
   'the twilight zone', 'the x files', 'penny dreadful', 'supernatural', 'tales from the crypt'
 ];
 var catagories = [movies, books, tv];
-var guesses = [];
 
-var guessCounter = 15; //sets number of guesses to 13
+
+var guessCounter = 15; //sets number of guesses to 15
 var matchCounter = 0; //sets number of matches to 0
 var winsCounter = 0;//sets wins to 0
 var lossesCounter = 0;//sets losses to 0
@@ -32,6 +32,9 @@ var lossDiv = document.createElement("div");
 
 var play = function() {
 
+  //declares empty guesses array
+  var guesses = [];
+ 
  //sets number of guesses and matches upon start of game
   var matchDiv = document.createElement("div");
   matchDiv.innerHTML = "Matches: " + matchCounter;
@@ -136,6 +139,17 @@ var play = function() {
               lossesCounter++
               lossDiv.innerHTML = "Losses: " + lossesCounter;
               //show answer if user loses
+              //resets game
+              guessCounter = 15; 
+              guessDiv.innerHTML = "";
+              matchCounter = 0; 
+             matchDiv.innerHTML = "";
+              //   var guesses = [];
+             word.innerHTML = "";
+            //guess.innerHTML = "";
+
+            // guessedLetter.innerHTML = "";
+            play();
 
             };
       		};
@@ -146,13 +160,14 @@ var play = function() {
           winsDiv.innerHTML = "Wins: " + winsCounter;
           //show picture when correct word is guessed
           // automatically reset game
-          guessCounter = 15; //sets number of guesses to 13
+          guessCounter = 15; 
             guessDiv.innerHTML = "";
-          matchCounter = 0; //sets number of matches to 0
+          matchCounter = 0; 
             matchDiv.innerHTML = "";
         //   var guesses = [];
           word.innerHTML = "";
-          guess.innerHTML = "";
+          //guess.innerHTML = "";
+
          // guessedLetter.innerHTML = "";
           play();
         };
