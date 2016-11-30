@@ -17,10 +17,31 @@ var matchCounter = 0; //sets number of matches to 0
 var winsCounter = 0;//sets wins to 0
 var lossesCounter = 0;//sets losses to 0
 
+//displays number of wins and losses
 
-//randomly select catagory and word within catagory
+var winsDiv = document.createElement("div");
+  winsDiv.innerHTML = "Wins: " + winsCounter;
+var lossDiv = document.createElement("div");
+  lossDiv.innerHTML = "Losses: " + lossesCounter;
+
+  
+  scoring.appendChild(winsDiv);
+  scoring.appendChild(lossDiv);
+  
+
 
 var play = function() {
+
+ //sets number of guesses and matches upon start of game
+  var matchDiv = document.createElement("div");
+  matchDiv.innerHTML = "Matches: " + matchCounter;
+  var guessDiv = document.createElement("div");
+  guessDiv.innerHTML = "Guesses: " + guessCounter;
+
+  scoring.appendChild(guessDiv);
+  scoring.appendChild(matchDiv);
+
+//randomly select catagory and word within catagory
 
   var chosenCatagory = catagories[Math.floor(Math.random() * catagories.length)];
   var chosenWord = chosenCatagory[Math.floor(Math.random() * chosenCatagory.length)];
@@ -44,7 +65,7 @@ var play = function() {
 
 
   //set _ for number of spaces in each word
-  var game = function() {
+
     var wordHolder = document.getElementById('wordSelected');
     var word = document.createElement('div');
     word.setAttribute('id', 'newWord');
@@ -54,8 +75,12 @@ var play = function() {
       guess.setAttribute('class', 'guess');
       if (chosenWord[i] === "-") {
         guess.innerHTML = "-";
+        matchCounter++
+        matchDiv.innerHTML = "Matches: " + matchCounter;
       } else if (chosenWord[i] === " ") {
         guess.innerHTML = " ";
+        matchCounter++
+        matchDiv.innerHTML = "Matches: " + matchCounter;
       } else {
         guess.innerHTML = "_";
       }
@@ -65,22 +90,6 @@ var play = function() {
       word.appendChild(guess);
 
     }
-
-    //displays number of guesses, matches, wins, and losses
-   	var matchDiv = document.createElement("div");
-    	matchDiv.innerHTML = "Matches: " + matchCounter;
-    var winsDiv = document.createElement("div");
-    	winsDiv.innerHTML = "Wins: " + winsCounter;
-    var lossDiv = document.createElement("div");
-    	lossDiv.innerHTML = "Losses: " + lossesCounter;
-    var guessDiv = document.createElement("div");
-      guessDiv.innerHTML = "Guesses: " + guessCounter;
-
-
-    scoring.appendChild(matchDiv);
-    scoring.appendChild(winsDiv);
-    scoring.appendChild(lossDiv);
-    scoring.appendChild(guessDiv);
 
 
     //turn user guess into a string and stores guessed letter
@@ -99,18 +108,6 @@ var play = function() {
         };
       };
       
-
-      //increases wins by 1 when word is correctly guessed
-      	if(matchCounter === chosenWord.length){
-      		winsCounter++
-      		winsDiv.innerHTML = "Wins: " + winsCounter;
-          //show picture when correct word is guessed
-      		// automatically reset game
-          //var guessCounter = 15; //sets number of guesses to 13
-         // var matchCounter = 0; //sets number of matches to 0
-         //var guesses = [];
-      		// play();
-      	};
 
 
       //creates list of guessed letters
@@ -133,6 +130,7 @@ var play = function() {
       			guessCounter--
       			guessDiv.innerHTML = "Guesses: " + guessCounter;
 
+            //increases loss counter by 1
             if ( guessCounter < 0 ) {
               guessDiv.innerHTML = "Game Over";
               lossesCounter++
@@ -142,11 +140,25 @@ var play = function() {
             };
       		};
 
+          //increases wins by 1 when word is correctly guessed
+        if(matchCounter === chosenWord.length){
+          winsCounter++
+          winsDiv.innerHTML = "Wins: " + winsCounter;
+          //show picture when correct word is guessed
+          // automatically reset game
+          guessCounter = 15; //sets number of guesses to 13
+            guessDiv.innerHTML = "";
+          matchCounter = 0; //sets number of matches to 0
+            matchDiv.innerHTML = "";
+        //   var guesses = [];
+          word.innerHTML = "";
+          guess.innerHTML = "";
+         // guessedLetter.innerHTML = "";
+          play();
+        };
+
+
     };
-
-  };
-
-  game();
 
 };
 
